@@ -1,0 +1,32 @@
+{% extends 'master.html'%}
+
+{% block title %}
+    Information sur les matériaux
+{% endblock %}
+
+{% block content %}
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <td>type materiel</td>
+                <td>budget</td>
+                <td>responsable</td>
+                <td>salle</td>
+            </tr>
+        </thead>
+        <tbody>
+        {% for materiel in list %}
+            <tr>
+                <td>{{materiel.type_materiel}}</td>
+                <td>{{materiel.budget_id}}</td>
+                {% for responsable in list_resp %}
+                    {% if responsable.id == materiel.responsable_id %}
+                        <td>{{responsable.type_responsable}}</td>
+                    {% endif %}
+                {% endfor %}
+                <td>{{materiel.salle_actuelle_id}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

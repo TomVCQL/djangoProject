@@ -1,0 +1,24 @@
+{% extends 'master.html'%}
+
+{% block title %}
+    Information sur les matériaux
+{% endblock %}
+
+{% block content %}
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <td>Nom</td>
+                <td>Prenom</td>
+            </tr>
+        </thead>
+        <tbody>
+        {% for enseignant in list %}
+            <tr>
+                <td>{{enseignant.nom}}</td>
+                <td>{{enseignant.prenom}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

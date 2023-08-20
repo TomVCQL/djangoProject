@@ -1,0 +1,36 @@
+{% extends 'master.html'%}
+
+{% block title %}
+    créer un nouveau enseignant
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+         <div class="form-group">
+            <label for="{{ form.responsable.id_for_label }}">Responsable:</label>
+            {{ form.responsable }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.type_materiel.id_for_label }}">Type de matériel:</label>
+            {{ form.type_materiel }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.budget.id_for_label }}">Budget:</label>
+            {{ form.budget }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.salle_actuelle.id_for_label }}">Salle actuelle:</label>
+            {{ form.salle_actuelle }}
+        </div>
+        <div class="boutons">
+            <button class="button radius alert left" type="cancel"><a href="{% url 'index' %}">Cancel</a></button>
+            <button class="button radius success right" type="submit">Submit</button>
+        </div>
+    </form>
+{% endblock %}

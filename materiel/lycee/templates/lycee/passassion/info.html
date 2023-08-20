@@ -1,0 +1,42 @@
+{% extends 'master.html'%}
+
+{% block title %}
+    Information sur les matériaux
+{% endblock %}
+
+{% block content %}
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <td>date</td>
+                <td>objectif</td>
+                <td>donneur</td>
+                <td>receveur</td>
+                <td>salle</td>
+                <td>Emprunt</td>
+            </tr>
+        </thead>
+        <tbody>
+        {% for passassion in list %}
+            <tr>
+                <td>{{passassion.date}}</td>
+                <td>{{passassion.objectif}}</td>
+                {% for enseignant in enseignant_list %}
+                    {% if enseignant.id == passassion.donneur_id %}
+                        <td>{{enseignant.nom}} {{enseignant.prenom}}</td>
+                    {% endif %}
+                    {% if enseignant.id == passassion.receveur_id %}
+                        <td>{{enseignant.nom}} {{enseignant.prenom}}</td>
+                    {% endif %}
+                {% endfor %}
+                {% for salle in salle_list %}
+                    {% if salle.id == passassion.lieu_id %}
+                        <td>{{salle.numero}}</td>
+                    {% endif %}
+                {% endfor %}
+                <td>{{passassion.emprunt_id}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

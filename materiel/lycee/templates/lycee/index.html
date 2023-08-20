@@ -1,0 +1,19 @@
+{% extends 'master.html'%}
+{% load static %}
+    {% block title %}
+        List of programs
+    {% endblock %}
+    {% block content %}
+    <ul>
+        <li><a href="{% url 'create_enseignant' %}"><button class="button radius alert left">Créer un enseignant</button></a></li>
+        <li><a href="{% url 'create_materiel' %}"><button class="button radius alert left">Créer un matériel</button></a></li>
+        <li><a href="{% url 'info_materiel' %}"><button class="button radius alert left">Information sur les materiaux</button></a></li>
+        <li><a href="{% url 'info_enseignant' %}"><button class="button radius alert left">Information sur les enseignants</button></a></li>
+        <li><a href="{% url 'create_emprunt' %}"><button class="button radius alert left">Faire un emprunt</button></a></li>
+        <li><a href="{% url 'create_passassion' %}"><button class="button radius alert left">Déclarer une passassion</button></a></li>
+        <li><a href="{% url 'info_passassion' %}"><button class="button radius alert left">Information passassion</button></a></li>
+        <li><a href="{% url 'info_emprunt' %}"><button class="button radius alert left">Information emprunt</button></a></li>
+    </ul>
+
+    {% endblock %}
+
